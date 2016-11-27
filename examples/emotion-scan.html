@@ -324,7 +324,7 @@
 
 						var curPostStoredSingleArray = curPostString.split(',');
 
-
+						var isSame = true;
 						for(var i=0; i<curPostStoredSingleArray.length;i++){
 								var value1=0,value2=0 ;
 
@@ -337,13 +337,12 @@
 								differenceVal= Math.abs(( value2  - value1) );	
 								  
 								if(differenceVal>=1){
-										alert('not matched');
-										 return ;
+									 isSame =false
 								}
 							 
 								 
 						}
-						 
+						 alert(isSame);
 						//console.log("diffPostString", diffPostString);
 
 						ctrack.draw(overlay);  
