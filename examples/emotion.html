@@ -286,7 +286,13 @@
 								if (value1 ==  value2 ) {
 								    diffPost[i][j] = "SAME";
 								} else { 
-								    diffPost[i][j] = value2  - value1;
+									var differenceVal=0;
+									//reduce noise to 10%
+									differenceVal= Math.abs(( value2  - value1) );
+									if(differenceVal<=0.1){
+										differenceVal= "SAME";
+									}
+								    diffPost[i][j] = differenceVal;
 								}
 							}
 						
