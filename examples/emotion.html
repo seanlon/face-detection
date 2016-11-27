@@ -263,8 +263,8 @@
 					  curPost=ctrack.getCurrentPosition();
 
 					if (curPost) {
-						console.log("prevPost", prevPost);
-						console.log("curPost", curPost);
+						//console.log("prevPost", prevPost);
+						//console.log("curPost", curPost);
 
 						//compare result prev and current post
 						for(var i=0; i<prevPost.length;i++){
@@ -292,7 +292,8 @@
 						
 						}
 
-						console.log("diffPost", diffPost);
+						var diffPostString = diffPost.join("\",\"");
+						console.log("diffPostString", diffPostString);
 						ctrack.draw(overlay); 
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
