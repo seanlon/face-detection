@@ -251,6 +251,7 @@
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					var curPost=ctrack.getCurrentPosition();
 					if (curPost) {
+						console.log("curPost", curPost);
 						ctrack.draw(overlay); 
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
