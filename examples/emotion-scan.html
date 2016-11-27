@@ -336,6 +336,8 @@
 						var curPostStoredSingleArray = curPostString.split(',');
 
 						var isSame = true;
+
+						 console.log('start' ); 
 						for(var i=0; i<curPostStoredSingleArray.length;i++){
 								var value1=0,value2=0 ;
 
@@ -347,6 +349,7 @@
 								} 
 								differenceVal= Math.abs(( value2  - value1) );	
 								  
+						 		console.log('differenceVal', differenceVal); 
 								if(differenceVal>=1){
 									 isSame =false
 								}
