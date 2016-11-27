@@ -244,13 +244,14 @@
 					// start loop to draw face
 					drawLoop();
 				}
-				
+				var prevPost = [] ;
 				function drawLoop() {
 					requestAnimFrame(drawLoop);
 					overlayCC.clearRect(0, 0, 400, 300);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					var curPost=ctrack.getCurrentPosition();
 					if (curPost) {
+						console.log("prevPost", prevPost);
 						console.log("curPost", curPost);
 						ctrack.draw(overlay); 
 						
@@ -259,6 +260,7 @@
 
 						overlayOutputCC.clearRect(0, 0, 400, 300); 
 						ctrack.draw(overlayOutput); 
+						prevPost= curPost  ;
 
 					}
 					var cp = ctrack.getCurrentParameters();
