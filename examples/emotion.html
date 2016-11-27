@@ -247,15 +247,7 @@
 
 
 
-Array.prototype.compareed = function(compareArrayList) {
-    if (this.length != compareArrayList.length) return false;
-    for (var i = 0; i < compareArrayList.length; i++) {
-        if (this[i].compare) { //To test values in nested arrays
-            if (!this[i].compare(compareArrayList[i])) return false;
-        } else if (this[i] !== compareArrayList[i]) return false;
-    }
-    return true;
-}
+ 
 
 
 
@@ -279,10 +271,10 @@ Array.prototype.compareed = function(compareArrayList) {
 								var array1 = prevPost[i][j];
 								var array2 = curPost[i][j];
 
-								if (array1.compareed(array2)) {
+								if (array1 ==  array2 ) {
 								    diffPost[i][j] = "SAME";
 								} else { 
-								    diffPost[i][j] = curPost[i][j] - prevPost[i][j];
+								    diffPost[i][j] = array2  - array1;
 								}
 							}
 						
