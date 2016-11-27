@@ -347,7 +347,7 @@
 								if ( curPostStoredSingleArray[i]     ) { 
 								  value2 = curPostStoredSingleArray[i] ;
 								} 
-								differenceVal= Math.abs(( value2  - value1) );	
+								differenceVal= Math.abs(( Math.abs( value2)  - Math.abs(value1) ) );	
 								  
 						 		console.log('differenceVal', differenceVal); 
 								if(differenceVal>=1){
