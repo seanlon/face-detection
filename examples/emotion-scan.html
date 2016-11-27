@@ -267,6 +267,10 @@
 
 
 
+				var prevStoredString = localStorage.getItem("curPostString" );
+				 console.log('prevStoredString', prevStoredString);
+				var prevStoredSingleArray = prevStoredString.split(',');
+
 
 				var curPost= [] ;
 				var prevPost = [] ;
@@ -317,10 +321,31 @@
 
 						var diffPostString = diffPost.join(",");
 						var curPostString = curPost.join(",");
+
+						var curPostStoredSingleArray = curPostString.split(',');
+
+
+						for(var i=0; i<curPostStoredSingleArray.length;i++){
+								var value1=0,value2=0 ;
+
+								if ( prevStoredSingleArray[i]    ) { 
+								  value1 = prevStoredSingleArray[i] ;
+								} 
+								if ( curPostStoredSingleArray[i]     ) { 
+								  value2 = curPostStoredSingleArray[i] ;
+								} 
+								differenceVal= Math.abs(( value2  - value1) );	
+								  
+								if(differenceVal>=1){
+										alert('not matched');
+										 return ;
+								}
+							 
+								 
+						}
+						 
 						//console.log("diffPostString", diffPostString);
 
-						var prevStored = localStorage.getItem("curPostString" );
-						 console.log('prevStored', prevStored);
 						ctrack.draw(overlay);  
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
