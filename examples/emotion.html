@@ -261,6 +261,7 @@
 					overlayCC.clearRect(0, 0, 400, 300);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					  curPost=ctrack.getCurrentPosition();
+
 					if (curPost) {
 						console.log("prevPost", prevPost);
 						console.log("curPost", curPost);
@@ -268,13 +269,22 @@
 						//compare result prev and current post
 						for(var i=0; i<prevPost.length;i++){
 							for(var j=0; j<prevPost[i].length;j++){ 
-								var array1 = prevPost[i][j];
-								var array2 = curPost[i][j];
+								var value1=0,value2=0 ;
 
-								if (array1 ==  array2 ) {
+								if ( prevPost[i]  && prevPost[i][j]  ) { 
+								  value1 = prevPost[i][j];
+								} 
+								
+								if ( curPost[i]  && curPost[i][j]  ) { 
+								  value2 = curPost[i][j];
+								} 
+								 
+
+							
+								if (value1 ==  value2 ) {
 								    diffPost[i][j] = "SAME";
 								} else { 
-								    diffPost[i][j] = array2  - array1;
+								    diffPost[i][j] = value2  - value1;
 								}
 							}
 						
