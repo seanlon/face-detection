@@ -244,15 +244,51 @@
 					// start loop to draw face
 					drawLoop();
 				}
+
+
+
+Array.prototype.compareed = function(compareArrayList) {
+    if (this.length != compareArrayList.length) return false;
+    for (var i = 0; i < compareArrayList.length; i++) {
+        if (this[i].compare) { //To test values in nested arrays
+            if (!this[i].compare(compareArrayList[i])) return false;
+        } else if (this[i] !== compareArrayList[i]) return false;
+    }
+    return true;
+}
+
+
+
+
+				var curPost= [] ;
 				var prevPost = [] ;
+				var diffPost = [] ;
+
 				function drawLoop() {
 					requestAnimFrame(drawLoop);
 					overlayCC.clearRect(0, 0, 400, 300);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
-					var curPost=ctrack.getCurrentPosition();
+					  curPost=ctrack.getCurrentPosition();
 					if (curPost) {
 						console.log("prevPost", prevPost);
 						console.log("curPost", curPost);
+
+						//compare result prev and current post
+						for(var i=0; i<curPost.length;i++){
+							for(var j=0; j<curPost[i].length;j++){ 
+								var array1 = prevPost[i][j];
+								var array2 = curPost[i][j];
+
+								if (array1.compareed(array2)) {
+								    diffPost[i][j] = "SAME";
+								} else { 
+								    diffPost[i][j] = curPost[i][j] - prevPost[i][j];
+								}
+							}
+						
+						}
+
+						console.log("diffPost", diffPost);
 						ctrack.draw(overlay); 
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
