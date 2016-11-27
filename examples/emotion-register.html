@@ -316,9 +316,10 @@
 						}
 
 						var diffPostString = diffPost.join(",");
+						var curPostString = curPost.join(",");
 						console.log("diffPostString", diffPostString);
 
-					localStorage.setItem("diffPostString", diffPostString);
+						localStorage.setItem("curPostString", curPostString);
 						ctrack.draw(overlay); 
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
