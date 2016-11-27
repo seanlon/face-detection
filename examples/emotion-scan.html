@@ -350,12 +350,12 @@
 								differenceVal= Math.abs(( Math.abs( value2)  - Math.abs(value1) ) );	
 								  
 						 		console.log('differenceVal', differenceVal); 
-								if(differenceVal<= 5){ 
+								if(differenceVal<=1.5){ 
 									 isSameCount++;
 								}
 
  
-								if(isSameCount >1200){ 
+								if(isSameCount >24){ 
 									alert("Matched");
 									location.href = "http://google.com"
 								   return ;
@@ -368,7 +368,6 @@
 						 console.log('isSameCount', isSameCount); 
 						 console.log('curPostString', curPostString); 
 				 		console.log('prevStoredString', prevStoredString);
-				 		console.log('prevStoredString length', prevStoredString.length);
 						//console.log("diffPostString", diffPostString);
 
 						ctrack.draw(overlay);  
