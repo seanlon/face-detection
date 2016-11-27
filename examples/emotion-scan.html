@@ -335,11 +335,11 @@
 
 						var curPostStoredSingleArray = curPostString.split(',');
 
-						var isSame = true;
+						var isSameCount = 0 ;
 
 						 console.log('start' ); 
 						for(var i=0; i<curPostStoredSingleArray.length;i++){
-								var value1=0,value2=0 ;
+								var value1=0, value2=0 ;
 
 								if ( prevStoredSingleArray[i]    ) { 
 								  value1 = prevStoredSingleArray[i] ;
@@ -350,14 +350,20 @@
 								differenceVal= Math.abs(( Math.abs( value2)  - Math.abs(value1) ) );	
 								  
 						 		console.log('differenceVal', differenceVal); 
-								if(differenceVal>=1){
-									 isSame =false
+								if(differenceVal<=1.5){ 
+									 isSameCount++;
+								}
+
+
+								if(isSameCount >10){ 
+									 return ;
 								}
 							 
 								 
 						}
 						 // alert(isSame);
-						 // 
+						 
+						 console.log('isSameCount', isSameCount); 
 						 console.log('curPostString', curPostString); 
 				 		console.log('prevStoredString', prevStoredString);
 						//console.log("diffPostString", diffPostString);
