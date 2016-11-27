@@ -350,12 +350,12 @@
 								differenceVal= Math.abs(( Math.abs( value2)  - Math.abs(value1) ) );	
 								  
 						 		console.log('differenceVal', differenceVal); 
-								if(differenceVal<=1.5){ 
+								if(differenceVal<= 5){ 
 									 isSameCount++;
 								}
 
  
-								if(isSameCount >500){ 
+								if(isSameCount >1200){ 
 									alert("Matched");
 									location.href = "http://google.com"
 								   return ;
