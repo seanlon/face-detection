@@ -274,13 +274,15 @@
 								if ( prevPost[i]  && prevPost[i][j]  ) { 
 								  value1 = prevPost[i][j];
 								} 
-								
+
 								if ( curPost[i]  && curPost[i][j]  ) { 
 								  value2 = curPost[i][j];
 								} 
 								 
-
-							
+								if(!diffPost[i]){
+									diffPost[i]=[]; 
+								}
+							    
 								if (value1 ==  value2 ) {
 								    diffPost[i][j] = "SAME";
 								} else { 
