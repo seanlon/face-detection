@@ -15,14 +15,14 @@
 			}
 			.face-overlay img {
 		    position: absolute;
-    left: 150px;
-    top: 50px;
-    background-color: transparent;
-    width: 350px;
-    height: 350px;
-    margin: 0 auto;
-    text-align: center;
-    z-index: 10;
+		    left: 150px;
+		    top: 50px;
+		    background-color: transparent;
+		    width: 350px;
+		    height: 350px;
+		    margin: 0 auto;
+		    text-align: center;
+		    z-index: 10;
 			}
 			#overlay {
 				position: absolute;
@@ -319,6 +319,9 @@
 						var curPostString = curPost.join(",");
 						console.log("diffPostString", diffPostString);
 
+
+						var prevPostString = prevPost.join(",");
+						localStorage.setItem("prevPostString", prevPostString);
 						localStorage.setItem("curPostString", curPostString);
 						ctrack.draw(overlay); 
 						
