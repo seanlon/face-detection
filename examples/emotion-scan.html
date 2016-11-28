@@ -277,9 +277,18 @@
 }();
 
 
+			//get all name list from local storage
+			var nameValueList =[];
+			var nameKeyList =[];
+			for (var i = 0; i < localStorage.length; i++){
+			       var nameArray = (localStorage.getItem(localStorage.key(i))); 
+				   nameValueList[i] = ( nameArray.split(','));
+				   nameKeyList[i] = localStorage.key(i)  ;
+			}
 
-				var prevStoredString = localStorage.getItem("curPostString" );
-				 console.log('prevStoredString', prevStoredString);
+
+				//var prevStoredString = localStorage.getItem("curPostString" );
+				// console.log('prevStoredString', prevStoredString);
 				var prevStoredSingleArray = prevStoredString.split(',');
 
 
@@ -337,12 +346,15 @@
 
 						var isSameCount = 0 ;
 
-						 console.log('start' ); 
-						for(var i=0; i<curPostStoredSingleArray.length;i++){
-								var value1=0, value2=0 ;
+						 console.log('start checking' ); 
 
-								if ( prevStoredSingleArray[i]    ) { 
-								  value1 = prevStoredSingleArray[i] ;
+							//scan each name list over each time
+						for(var j=0; j<nameValueList.length;j++){ 
+
+							for(var i=0; i<curPostStoredSingleArray.length;i++){
+								var value1=0, value2=0 ;
+								if ( nameValueList[j][i]    ) { 
+								  value1 = nameValueList[j][i] ;
 								} 
 								if ( curPostStoredSingleArray[i]     ) { 
 								  value2 = curPostStoredSingleArray[i] ;
@@ -356,10 +368,13 @@
 
  
 								if(isSameCount >60){ 
-									alert("Matched isSameCount" +isSameCount );
+									var userNameFound = nameKeyList[j];
+									alert("Matched coordinates" +isSameCount +" // userNameFound= "+userNameFound);
 									//location.href = "http://google.com"
 								   return ;
 								}
+							}
+								
 							 
 								 
 						}
