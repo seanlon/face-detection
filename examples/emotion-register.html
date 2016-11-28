@@ -149,6 +149,8 @@
 			<p>This a test of emotion detection based on parameter output that is adjustable.</p>
 
 			<div id="controls">
+				<input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" /> 
+
 				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 			</div>
 
@@ -322,7 +324,11 @@
 
 						var prevPostString = prevPost.join(",");
 						localStorage.setItem("prevPostString", prevPostString);
-						localStorage.setItem("curPostString", curPostString);
+						localStorage.setItem( "curPostString", curPostString);
+
+						var userName = document.getElementById('userName').value ;
+						localStorage.setItem(  userName , curPostString);
+
 						ctrack.draw(overlay); 
 						
 						document.getElementById('data-label-output').innerHTML='Recording Data';
