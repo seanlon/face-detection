@@ -188,6 +188,8 @@
             <div id='emotion_chart'></div>
         </div>
         <script>
+
+        var diffPostString , curPostString  ;
         var vid = document.getElementById('videoel');
         var overlayOutput = document.getElementById('overlay-output');
         var overlayOutputCC = overlayOutput.getContext('2d');
@@ -321,8 +323,8 @@
 
                 }
 
-                var diffPostString = diffPost.join(",");
-                var curPostString = curPost.join(",");
+                  diffPostString = diffPost.join(",");
+                  curPostString = curPost.join(",");
                 // console.log("diffPostString", diffPostString);
 
 
@@ -330,8 +332,7 @@
                 //localStorage.setItem("prevPostString", prevPostString);
                 //localStorage.setItem( "curPostString", curPostString);
 
-                var userName = document.getElementById('userName').value;
-                localStorage.setItem(userName, curPostString);
+               
 
                 ctrack.draw(overlay);
 
@@ -477,6 +478,11 @@
         document.addEventListener('clmtrackrIteration', function(event) {
             stats.update();
         }, false);
+
+        function registerFace(){
+         		var userName = document.getElementById('userName').value;
+        	localStorage.setItem(userName, curPostString);
+        }
         </script>
     </div>
     <script>
