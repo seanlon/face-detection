@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Face tracker - Scan Your face</title>
+    <title>Face tracker - Register Your face</title>
     <meta charset="utf-8">
     <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
@@ -155,6 +155,10 @@
             <canvas id="overlay" width="400" height="300"></canvas>
         </div>
         <canvas id="sketch" width="400" height="300"></canvas>
+        <div class=" " id="controls">
+            <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
+            <input class="btn" type="button" disabled="disabled" onclick="registerFace()" id="startbutton"></input>
+        </div>
         <div class="hidden" id="controls">
             <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
             <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
@@ -468,7 +472,7 @@
     <script>
     (function() {
         setTimeout(function() {
-            startVideo(); 
+            startVideo();
         }, 1500);
 
     })();
