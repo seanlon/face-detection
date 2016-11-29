@@ -350,7 +350,7 @@
 
 						var curPostStoredSingleArray = curPostString.split(',');
 
-						 console.log('start checking' ); 
+						 //console.log('start checking' ); 
 
 							//scan each name list over each time
 						for(var j=0; j<nameValueList.length;j++){ 
@@ -367,7 +367,7 @@
 								} 
 								differenceVal= Math.abs(( Math.abs( value2)  - Math.abs(value1) ) );	
 								  
-						 		console.log('differenceVal', differenceVal); 
+						 		//console.log('differenceVal', differenceVal); 
 								if(differenceVal<=1.5){ 
 									 isSameCount++;
 								}
@@ -375,7 +375,7 @@
  
 								if(isSameCount >60){ 
 									var userNameFound = nameKeyList[j];
-									console.log("Matched coordinates" +isSameCount +" // userNameFound= "+userNameFound);
+									 console.log("Matched coordinates" +isSameCount +" // userNameFound= "+userNameFound);
 									handleModal( 'match, userNameFound) ;
 									//location.href = "http://google.com"
 								   return ;
@@ -387,8 +387,8 @@
 						}
 						 // alert(isSame);
 						 
-						 console.log('isSameCount', isSameCount); 
-						 console.log('curPostString', curPostString); 
+						// console.log('isSameCount', isSameCount); 
+						// console.log('curPostString', curPostString); 
 				 		// console.log('prevStoredString', prevStoredString); 
 
 						ctrack.draw(overlay);  
