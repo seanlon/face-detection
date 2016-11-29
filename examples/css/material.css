@@ -30,7 +30,7 @@ form h1 {
 
 input {
   margin: 40px 25px;
-  width: 200px;
+  width: 100%;
   display: block;
   border: none;
   padding: 10px 0;
@@ -40,7 +40,7 @@ input {
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
   background-position: -200px 0;
-  background-size: 200px 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   color: #0e6252;
 }
