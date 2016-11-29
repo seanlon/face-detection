@@ -29,8 +29,8 @@ form h1 {
 }
 
 input {
-  margin: 40px 25px;
-  width: 100%;
+    margin: 20px 10px;
+    width: 95%;
   display: block;
   border: none;
   padding: 10px 0;
