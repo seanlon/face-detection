@@ -147,15 +147,15 @@
             <h2>  </h2>
             <h2 class="text-center">Please ensure the green line enters the blue line like this.</h2>
             <img class="contentImageTutorial " width="300" height="300" src="./media/screen.png">
-            <input class="btn" type="button" onclick=" handleModal('close')" value="Okay! "/>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('close')" value="Okay! "/>
         </div>
         <div class="hidden  contentModalFinish  " id="contentModalFinish">
             <h2>  </h2>
             <h2 class="text-center">Face Registration Successful</h2>
             <h2>  </h2>
-            <input class="btn" type="button" onclick=" handleModal('close')"  value="Register More Face"/>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('close')"  value="Register More Face"/>
             <h2>  </h2>
-            <input class="btn" type="button" onclick=" handleModal('redirect')"  value="Recognize Face"/>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('redirect')"  value="Recognize Face"/>
         </div>
     </div>
     <div id="content">
@@ -171,11 +171,11 @@
         <canvas id="sketch" width="400" height="300"></canvas>
         <div class=" " id="controls">
             <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
-            <input class="btn" type="button" onclick="registerFace()" id="scanbutton" value="Scan"></input>
+            <input class="btn btn-danger" type="button" onclick="registerFace()" id="scanbutton" value="Scan"></input>
         </div>
         <div class="hidden" id="controls">
             <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
-            <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+            <input class="btn btn-danger" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
         </div>
         <div class="hidden" id="recordCanvas">
             <h3 id="data-label-output"></h3>
@@ -501,6 +501,8 @@
     		$('.contentModalTutorial').toggleClass('hidden',true);
     		$('.contentModalFinish').toggleClass('hidden',false );
     	}
+
+
     	else if(_module == 'close'){ 
     		$('.modal').toggleClass('hidden',true); 
     	} 
