@@ -133,6 +133,7 @@
 </head>
 
 <body>
+    <script src="js/jquery.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/clmtrackr.js"></script>
     <script src="models/model_pca_20_svm_emotionDetection.js"></script>
@@ -146,15 +147,15 @@
             <h2>  </h2>
             <h2 class="text-center">Please ensure the green line enters the blue line like this.</h2>
             <img class="contentImageTutorial " width="300" height="300" src="./media/screen.png">
-            <input class="btn" type="button" onclick="closeModal()" value="Scan">Okay! </input>
+            <input class="btn" type="button" onclick=" handleModal('close')" value="Okay! "/>
         </div>
         <div class="hidden  contentModalFinish  " id="contentModalFinish">
             <h2>  </h2>
             <h2 class="text-center">Face Registration Successful</h2>
             <h2>  </h2>
-            <input class="btn" type="button" value="Register More Face"></input>
+            <input class="btn" type="button" onclick=" handleModal('close')"  value="Register More Face"/>
             <h2>  </h2>
-            <input class="btn" type="button" value="Recognize Face"> </input>
+            <input class="btn" type="button" onclick=" handleModal('redirect')"  value="Recognize Face"/>
         </div>
     </div>
     <div id="content">
@@ -489,9 +490,28 @@
         </script>
     </div>
     <script>
+    function handleModal(_module){
+    	if(_module == 'tutorial'){
+    		$('.modal').toggleClass('hidden',false);
+    		$('.contentModalTutorial').toggleClass('hidden',false);
+    		$('.contentModalFinish').toggleClass('hidden',true);
+    	}
+    	else if(_module == 'registered'){ 
+    		$('.modal').toggleClass('hidden',false);
+    		$('.contentModalTutorial').toggleClass('hidden',true);
+    		$('.contentModalFinish').toggleClass('hidden',false );
+    	}
+    	else if(_module == 'close'){ 
+    		$('.modal').toggleClass('hidden',true); 
+    	} 
+    	else if(_module == 'redirect'){ 
+    		 location.href= 'emotion-scan.html';
+    	} 
+    }
     (function() {
         setTimeout(function() {
             startVideo();
+             handleModal( 'tutorial') ; 
         }, 1500);
 
     })();
