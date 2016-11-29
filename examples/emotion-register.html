@@ -486,6 +486,10 @@
 
         function registerFace() {
             var userName = document.getElementById('userName').value;
+            if( localStorage.getItem(userName  ) ){
+            	alert( userName+ ' already exist!');
+            	return ;
+            }
             localStorage.setItem(userName, curPostString);
             handleModal( 'registered') ;
            
