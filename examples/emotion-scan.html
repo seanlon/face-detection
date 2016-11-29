@@ -110,6 +110,9 @@
 				fill : steelblue;
 				fill-opacity : .9;
 			}
+			.hidden{
+				display: none ;
+			}
 
 		</style>
 		<script>
@@ -120,19 +123,7 @@
 				window.location.protocol = "https";
 			}
 		</script>
-		<script type="text/javascript">
-
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-32642923-1']);
-			_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
+		 
 	</head>
 	<body>
 		<script src="js/utils.js"></script>
@@ -145,21 +136,8 @@
 		<div id="content">
 	 
 
-			<h2>Emotion detection example</h2>
-			<p>This a test of emotion detection based on parameter output that is adjustable.</p>
-
-			<div id="controls">
-				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
-			</div>
-
-
-
-			<div id="recordCanvas"> 
-				<h3 id="data-label-output"></h3>
-				<span id="data-output"></span>
-				<canvas id="overlay-output" width="400" height="300"></canvas>
-			</div>
-
+        <h2>Face Scanner Recognition - Find Your Face</h2>
+	
 
 			<div id="container">
 				<div class="face-overlay"> 
@@ -171,8 +149,21 @@
 				<canvas id="overlay" width="400" height="300"></canvas>
 			</div>
 			<canvas id="sketch" width="400" height="300"></canvas>
-	
-		<div id="emotion_container">
+		 
+		 
+			<div class="hidden" id="controls">
+				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+			</div>
+
+
+
+			<div class="hidden"  id="recordCanvas"> 
+				<h3 id="data-label-output"></h3>
+				<span id="data-output"></span>
+				<canvas id="overlay-output" width="400" height="300"></canvas>
+			</div>
+
+		<div class="hidden"  id="emotion_container">
 	
 
 				<div id="emotion_icons">
@@ -184,7 +175,6 @@
 				<div id='emotion_chart'></div>
 			</div>
 		
-		 
 		 
 			<script>
 				var vid = document.getElementById('videoel');
@@ -502,5 +492,16 @@
 				
 			</script>
 		</div>
+		
+    <script>
+    (function() {
+        setTimeout(function() {
+            startVideo(); 
+        }, 1500);
+
+    })();
+    </script>
 	</body>
+
+
 </html>
