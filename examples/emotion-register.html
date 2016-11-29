@@ -6,14 +6,10 @@
     <meta charset="utf-8">
     <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="./css/material.css" rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-<link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
     <style>
     @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
-   
-    
     .face-overlay img {
         position: absolute;
         left: 150px;
@@ -138,38 +134,29 @@
 
 <body>
     <script src="js/utils.js"></script>
-
     <script src="js/clmtrackr.js"></script>
     <script src="models/model_pca_20_svm_emotionDetection.js"></script>
     <script src="js/Stats.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="js/emotion_classifier.js"></script>
     <script src="js/emotionmodel.js"></script>
- 
-<!-- Modal -->
-<div class="hidden modal  " id="modal" tabindex="-1" >
- 
-    <div class="hidden   contentModalTutorial " id="contentModalTutorial">
-
-    	<h2>  </h2> 
-		<h2 class="text-center">Please ensure the green line enters the blue line like this.</h2> 
-                <img class="contentImageTutorial " width="300" height="300" src="./media/screen.png">
-
-      <input   class="btn" type="button" onclick="closeModal()"   value="Scan">Okay!   </input>
+    <!-- Modal -->
+    <div class="hidden modal  " id="modal" tabindex="-1">
+        <div class="hidden   contentModalTutorial " id="contentModalTutorial">
+            <h2>  </h2>
+            <h2 class="text-center">Please ensure the green line enters the blue line like this.</h2>
+            <img class="contentImageTutorial " width="300" height="300" src="./media/screen.png">
+            <input class="btn" type="button" onclick="closeModal()" value="Scan">Okay! </input>
+        </div>
+        <div class="hidden  contentModalFinish  " id="contentModalFinish">
+            <h2>  </h2>
+            <h2 class="text-center">Face Registration Successful</h2>
+            <h2>  </h2>
+            <input class="btn" type="button" value="Register More Face"></input>
+            <h2>  </h2>
+            <input class="btn" type="button" value="Recognize Face"> </input>
+        </div>
     </div>
-
-    <div class="hidden  contentModalFinish  " id="contentModalFinish">
-    	<h2>  </h2> 
-		<h2 class="text-center">Face Registration Successful</h2> 
-
-    	<h2>  </h2> 
-      <input   class="btn" type="button"    value="Register More Face"></input>
-		<h2>  </h2> 
-      <input   class="btn" type="button"    value="Recognize Face"> </input>
-    </div>
-</div>
-
-
     <div id="content">
         <h2>Face Scanner Recognition - Register Your Face</h2>
         <div id="container">
@@ -181,12 +168,9 @@
             <canvas id="overlay" width="400" height="300"></canvas>
         </div>
         <canvas id="sketch" width="400" height="300"></canvas>
-
-  
-
         <div class=" " id="controls">
             <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
-            <input class="btn" type="button"  onclick="registerFace()" id="scanbutton" value="Scan"></input>
+            <input class="btn" type="button" onclick="registerFace()" id="scanbutton" value="Scan"></input>
         </div>
         <div class="hidden" id="controls">
             <input type="text" name="userName" id="userName" placeholder="Please enter a user name to register. eg. John Doe" value="John Doe" />
@@ -207,8 +191,7 @@
             <div id='emotion_chart'></div>
         </div>
         <script>
-
-        var diffPostString , curPostString  ;
+        var diffPostString, curPostString;
         var vid = document.getElementById('videoel');
         var overlayOutput = document.getElementById('overlay-output');
         var overlayOutputCC = overlayOutput.getContext('2d');
@@ -342,8 +325,8 @@
 
                 }
 
-                  diffPostString = diffPost.join(",");
-                  curPostString = curPost.join(",");
+                diffPostString = diffPost.join(",");
+                curPostString = curPost.join(",");
                 // console.log("diffPostString", diffPostString);
 
 
@@ -351,7 +334,7 @@
                 //localStorage.setItem("prevPostString", prevPostString);
                 //localStorage.setItem( "curPostString", curPostString);
 
-               
+
 
                 ctrack.draw(overlay);
 
@@ -498,10 +481,10 @@
             stats.update();
         }, false);
 
-        function registerFace(){
-     		var userName = document.getElementById('userName').value;
-        	localStorage.setItem(userName, curPostString);
-        	alert
+        function registerFace() {
+            var userName = document.getElementById('userName').value;
+            localStorage.setItem(userName, curPostString);
+            alert
         }
         </script>
     </div>
