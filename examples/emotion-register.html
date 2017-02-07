@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='//fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
     <style>
-     .face-overlay img {
+    .face-overlay img {
         position: absolute;
         left: 150px;
         top: 50px;
@@ -143,21 +143,25 @@
     <!-- Modal -->
     <div class="hidden modal  " id="modal" tabindex="-1">
         <div class="hidden   contentModalTutorial " id="contentModalTutorial">
-            <h2>  </h2><h2>  </h2>
+            <h2>  </h2>
+            <h2>  </h2>
             <h2 class="text-center">Please ensure the green line enters the blue line like this.</h2>
-		<h2> <br> </h2>
-
+            <h2> <br> </h2>
             <h2 class="text-center">Then, key in your name and press register!</h2>
             <img class="contentImageTutorial " width="300" height="300" src="./media/screen.png">
-            <input class="btn btn-danger" type="button" onclick=" handleModal('close')" value="Okay! "/>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('close')" value="Okay! " />
         </div>
         <div class="hidden  contentModalFinish  " id="contentModalFinish">
-            <h2> <br/> </h2><h2>  <br/> </h2><h2>  </h2>
+            <h2> <br/> </h2>
+            <h2>  <br/> </h2>
+            <h2>  </h2>
             <h2 class="text-center">Face Registration Successful</h2>
-            <h2>  <br/> </h2><h2>  </h2>
-            <input class="btn btn-danger" type="button" onclick=" handleModal('close')"  value="Register More Face"/>
-            <h2>  <br/> </h2><h2>  </h2>
-            <input class="btn btn-danger" type="button" onclick=" handleModal('redirect')"  value="Recognize Face"/>
+            <h2>  <br/> </h2>
+            <h2>  </h2>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('close')" value="Register More Face" />
+            <h2>  <br/> </h2>
+            <h2>  </h2>
+            <input class="btn btn-danger" type="button" onclick=" handleModal('redirect')" value="Recognize Face" />
         </div>
     </div>
     <div id="content">
@@ -210,17 +214,17 @@
         }
 
         /*var insertAltVideo = function(video) {
-        	if (supports_video()) {
-        		if (supports_ogg_theora_video()) {
-        			video.src = "../media/cap12_edit.ogv";
-        		} else if (supports_h264_baseline_video()) {
-        			video.src = "../media/cap12_edit.mp4";
-        		} else {
-        			return false;
-        		}
-        		//video.play();
-        		return true;
-        	} else return false;
+            if (supports_video()) {
+                if (supports_ogg_theora_video()) {
+                    video.src = "../media/cap12_edit.ogv";
+                } else if (supports_h264_baseline_video()) {
+                    video.src = "../media/cap12_edit.mp4";
+                } else {
+                    return false;
+                }
+                //video.play();
+                return true;
+            } else return false;
         }*/
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
         window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
@@ -486,41 +490,50 @@
 
         function registerFace() {
             var userName = document.getElementById('userName').value;
-            if( localStorage.getItem(userName  ) ){
-            	alert( userName+ ' already exist!');
-            	return ;
+            if (localStorage.getItem(userName)) {
+                alert(userName + ' already exist!');
+                return;
             }
             localStorage.setItem(userName, curPostString);
-            handleModal( 'registered') ;
-           
+            handleModal('registered');
+
+            var form_data = {"name":userName, "data":curPostString};
+            var form_url = "http://seanloh.com/facerecognition/Update;
+            var form_method =  "POST";
+
+            $.ajax({
+                url: form_url,
+                type: form_method,
+                data: form_data,
+                cache: false,
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+
         }
         </script>
     </div>
     <script>
-    function handleModal(_module){
-    	if(_module == 'tutorial'){
-    		$('.modal').toggleClass('hidden',false);
-    		$('.contentModalTutorial').toggleClass('hidden',false);
-    		$('.contentModalFinish').toggleClass('hidden',true);
-    	}
-    	else if(_module == 'registered'){ 
-    		$('.modal').toggleClass('hidden',false);
-    		$('.contentModalTutorial').toggleClass('hidden',true);
-    		$('.contentModalFinish').toggleClass('hidden',false );
-    	}
-
-
-    	else if(_module == 'close'){ 
-    		$('.modal').toggleClass('hidden',true); 
-    	} 
-    	else if(_module == 'redirect'){ 
-    		 location.href= 'emotion-scan.html';
-    	} 
+    function handleModal(_module) {
+        if (_module == 'tutorial') {
+            $('.modal').toggleClass('hidden', false);
+            $('.contentModalTutorial').toggleClass('hidden', false);
+            $('.contentModalFinish').toggleClass('hidden', true);
+        } else if (_module == 'registered') {
+            $('.modal').toggleClass('hidden', false);
+            $('.contentModalTutorial').toggleClass('hidden', true);
+            $('.contentModalFinish').toggleClass('hidden', false);
+        } else if (_module == 'close') {
+            $('.modal').toggleClass('hidden', true);
+        } else if (_module == 'redirect') {
+            location.href = 'emotion-scan.html';
+        }
     }
     (function() {
         setTimeout(function() {
             startVideo();
-             handleModal( 'tutorial') ; 
+            handleModal('tutorial');
         }, 1500);
 
     })();
